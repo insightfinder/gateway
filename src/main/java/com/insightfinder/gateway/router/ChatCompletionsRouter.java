@@ -13,11 +13,13 @@ import java.util.Map;
 @RequestMapping("/v1/chat/completions")
 public class ChatCompletionsRouter {
 
-    @Autowired
-    private ChatStreamController streamChatController;
+    private final ChatStreamController streamChatController;
+    private final ChatController chatController;
 
-    @Autowired
-    private ChatController chatController;
+    public ChatCompletionsRouter(ChatStreamController streamChatController, ChatController chatController) {
+        this.streamChatController = streamChatController;
+        this.chatController = chatController;
+    }
 
     @PostMapping
     public Mono<ResponseEntity<?>> chatCompletions(
