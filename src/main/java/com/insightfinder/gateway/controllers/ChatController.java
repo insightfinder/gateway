@@ -1,15 +1,21 @@
 package com.insightfinder.gateway.controllers;
 
+import io.micrometer.observation.annotation.Observed;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 import java.util.Map;
 
-@Controller
+@RestController
+@RequestMapping("/api/v1")
+@Observed
 public class ChatController {
 
     private final WebClient webClient;
@@ -21,7 +27,9 @@ public class ChatController {
                 .build();
     }
 
-    public Mono<ResponseEntity<?>> chat(Map<String, Object> requestBody) {
+    @PostMapping("/chat/completions")
+    @Observed(name = "chat.completions", contextualName = "chat-completions-request")
+    public Mono<ResponseEntity<?>> chat(@RequestBody Map<String, Object> requestBody) {
         return webClient.post()
                 .uri("/v1/chat/completions")
                 .bodyValue(requestBody)

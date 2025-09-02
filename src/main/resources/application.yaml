@@ -1,3 +1,18 @@
 spring:
   application:
     name: "gateway"
+
+# OpenTelemetry configuration
+otel:
+  service:
+    name: "gateway"
+  exporter:
+    otlp:
+      endpoint: "http://localhost:4318"
+      headers: {}
+  traces:
+    exporter: otlp
+  metrics:
+    exporter: none
+  logs:
+    exporter: none
