@@ -32,5 +32,4 @@ public class ChatCompletionsRouter {
             return chatController.chat(requestBody);
         }
     }
-
 }
