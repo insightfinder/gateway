@@ -1,8 +1,7 @@
 package com.insightfinder.gateway.router;
 
-import com.insightfinder.gateway.controllers.ChatController;
-import com.insightfinder.gateway.controllers.ChatStreamController;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.insightfinder.gateway.controller.ChatController;
+import com.insightfinder.gateway.controller.ChatStreamController;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;

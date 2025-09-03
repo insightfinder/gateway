@@ -1,17 +1,20 @@
 spring:
+  main:
+    banner-mode: off
+
   application:
-    name: "gateway"
+    name: "insightfinder-gateway"
+
+insightfinder:
+  url: "https://ai-stg.insightfinder.com"
 
 # OpenTelemetry configuration
 otel:
   service:
-    name: "gateway"
+    name: "insightfinder-gateway"
   exporter:
     otlp:
       endpoint: "http://localhost:4318"
-      headers: {}
-  traces:
-    exporter: otlp
   metrics:
     exporter: none
   logs:

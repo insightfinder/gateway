@@ -1,4 +1,4 @@
-package com.insightfinder.gateway.controllers;
+package com.insightfinder.gateway.controller;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;

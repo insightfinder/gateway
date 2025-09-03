@@ -1,4 +1,4 @@
-package com.insightfinder.gateway.controllers;
+package com.insightfinder.gateway.controller;
 
 import io.micrometer.observation.annotation.Observed;
 import org.springframework.http.HttpHeaders;
