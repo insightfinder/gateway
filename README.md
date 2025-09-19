@@ -17,10 +17,10 @@ client = OpenAI(
 )
 
 completion = client.chat.completions.create(
-model="gateway",
-messages=[
-    {"role": "system", "content": "You are a helpful assistant."},
-    {"role": "user", "content": "Hello!"}
+    model="gateway",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Hello!"}
     ],
     stream=True
 )
