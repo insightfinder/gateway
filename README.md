@@ -5,7 +5,7 @@ The LLM Gateway service for InsightFinder AI.
 Our Gateway service can be accessible via the OpenAI Python SDK.
 We just need to do the following changes during OpenAI SDK initialization:
 1. Set the base_url to the InsightFinder Gateway service URL.
-2. Set the api_key to the following format: "<IF_USERNAME>|<IF_LICENSE_KEY>". Example: `api_key="aiuser|abcd1234xxxxxxxxx"`
+2. Set the api_key to the following format: `api_key="<IF_USERNAME>|<IF_LICENSE_KEY>"`.
 3. Set the model to "gateway".
 
 ```python
