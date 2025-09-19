@@ -25,5 +25,7 @@ completion = client.chat.completions.create(
     stream=True
 )
 
-print(completion.choices[0].message)
+for chunk in completion:
+    if chunk.choices and chunk.choices[0].delta.content:
+        print(chunk.choices[0].delta.content, end='', flush=True)
 ```
