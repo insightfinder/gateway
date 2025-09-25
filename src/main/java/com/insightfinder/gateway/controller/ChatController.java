@@ -1,5 +1,6 @@
 package com.insightfinder.gateway.controller;
 
+import com.insightfinder.gateway.model.internal.InsightFinderAuthModel;
 import io.micrometer.observation.annotation.Observed;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -29,7 +30,7 @@ public class ChatController {
 
     @PostMapping("/chat/completions")
     @Observed(name = "chat.completions", contextualName = "chat-completions-request")
-    public Mono<ResponseEntity<?>> chat(@RequestBody Map<String, Object> requestBody) {
+    public Mono<ResponseEntity<?>> chatWithGateway(@RequestBody Map<String, Object> requestBody, InsightFinderAuthModel ifAuthentication) {
         return webClient.post()
                 .uri("/v1/chat/completions")
                 .bodyValue(requestBody)

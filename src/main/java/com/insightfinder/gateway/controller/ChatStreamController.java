@@ -1,5 +1,6 @@
 package com.insightfinder.gateway.controller;
 
+import com.insightfinder.gateway.model.internal.InsightFinderAuthModel;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +24,7 @@ public class ChatStreamController {
                 .build();
     }
 
-    public Mono<ResponseEntity<?>> chat(Map<String, Object> requestBody) {
+    public Mono<ResponseEntity<?>> chatWithGateway(Map<String, Object> requestBody, InsightFinderAuthModel ifAuthentication) {
         Flux<ServerSentEvent<String>> eventStream = webClient.post()
                 .uri("/v1/chat/completions")
                 .bodyValue(requestBody)

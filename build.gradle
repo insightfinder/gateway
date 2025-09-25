@@ -5,6 +5,8 @@ plugins {
     id 'org.springframework.boot' version '3.5.5'
     id 'io.spring.dependency-management' version '1.1.4'
     id 'org.graalvm.buildtools.native' version '0.9.28'
+    id("io.freefair.lombok") version "8.14.2"
+
 }
 
 group = 'com.insightfinder'
@@ -23,15 +25,10 @@ repositories {
 
 dependencies {
     implementation(platform(SpringBootPlugin.BOM_COORDINATES))
-    // Use Spring Boot 3.x compatible OpenTelemetry version
     implementation(platform("io.opentelemetry.instrumentation:opentelemetry-instrumentation-bom:2.8.0"))
-
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
-
-    // Only include the Spring Boot starter - it will pull in everything needed
     implementation 'io.opentelemetry.instrumentation:opentelemetry-spring-boot-starter'
-
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
