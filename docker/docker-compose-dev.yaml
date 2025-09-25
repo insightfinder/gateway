@@ -9,14 +9,3 @@ services:
       - "5778:5778"
       - "9411:9411"
     restart: unless-stopped
-
-  wiremock:
-    image: wiremock/wiremock:latest
-    container_name: wiremock-server
-    restart: unless-stopped
-    ports:
-      - "8888:8080"
-    volumes:
-      - ./wiremock/mappings:/home/wiremock/mappings
-      - ./wiremock/__files:/home/wiremock/__files
-    command: [ "--global-response-templating", "--verbose" ]
